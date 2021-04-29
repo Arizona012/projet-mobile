@@ -1,0 +1,76 @@
+<html>
+<head></head>
+<body>
+Pays<select onclick="affvilles()" id="s1">
+<option>Maroc</option>
+<option>Egypte</option>
+<option>US</option>
+</select><br>
+<select  onclick="remplir(this,['a','b','c'])" id='s2'>
+   
+</select>
+
+<button onclick="affsel()"> selection </button><br>
+
+<select id ='sm' multiple onclick="alert(this.options.selectedIndex)">
+<option>ar</option>
+<option>fr</option>
+<option>en</option>
+<option>x</option>
+</select>
+<button onclick="affselm(document.getElementById('sm'))">afficher selection multiple</button>
+<script>
+/*function testopt(){
+    var option = document.createElement("option");
+option.text = "Kiwi";
+    document.getElementById('s2').options.add(option);}*/
+    function affsel(){
+alert(document.getElementById('s1').value);}
+function affvilles(){ 
+var p =document.getElementById('s1').value;
+document.getElementById('s2').innerHTML='';
+
+switch(p){ 
+case 'Maroc' : var o0=document.createElement('option'); 
+o0.text='Rabat';
+
+document.getElementById('s2').options.add(o0,0);
+var o1=document.createElement('option');  o1.text='salé';
+document.getElementById('s2').options.add(o1,1); break;
+case 'US' :
+    var  o0=document.createElement('option'); 
+o0.text='NY'; document.getElementById('s2').options.add(o0,0);
+var  o1=document.createElement('option'); 
+o1.text='Washington';
+document.getElementById('s2').options.add(o1,1); break;
+}}
+
+function remplir(s,t){
+    var o =new Array(t.length);
+  for (i=0;i<t.length;i++){
+    o[i]=document.createElement('option');
+    o[i].text=t[i];
+    s.add(o[i],i)
+  }
+
+
+}
+
+function affselm(s){ var txt='';
+for ( i =0;i<s.options.length;i++){
+if(s.options[i].selected==true){txt +=s.options[i].text;
+
+}
+
+}alert(txt);
+
+
+}
+
+
+
+</script>
+
+</body>
+
+</html>
